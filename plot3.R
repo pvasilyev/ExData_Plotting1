@@ -2,6 +2,8 @@ draw3 <- function() {
   source("./common.R")
   consumption_data <- get_data()
 
+  png(filename = "./plot3.png", width = 480, height = 480)
+  
   with(consumption_data, plot(Sub_metering_1 ~ Full_Date, 
                               type = "l", 
                               xlab = "", 
@@ -13,6 +15,6 @@ draw3 <- function() {
          col = c("black", "red", "blue"), 
          legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"), 
          lty = 1)
-  dev.copy(png, file = "./plot3.png")
+  
   dev.off()
 }
